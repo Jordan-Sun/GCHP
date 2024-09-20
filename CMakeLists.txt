@@ -64,6 +64,11 @@ if("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU")
   list(APPEND CMAKE_Fortran_FLAGS "-ffree-line-length-none")
 endif()
 
+if("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "Intel")
+	#  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -check all")
+  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -check stack")
+endif()
+
 set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod)
 
 # Add the directory with gchp_ctm's source code
